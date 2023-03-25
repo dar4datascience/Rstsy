@@ -1,0 +1,65 @@
+---
+title: "gridlayout_demo"
+author: "Daniel Amieva Rodriguez"
+format: 
+  html:
+    embed-resources: true
+    code-fold: true
+editor: visual
+---
+
+## Demo Grid Layout with Cats and Other Rtsy Stuff
+
+```{r}
+#| label: load-packages
+#| include: false
+library(magick)
+library(reticulate)
+here::i_am("gridlayout_demo.qmd")
+```
+
+```{r}
+#| label: load-images
+#| include: false
+obtuse_cat <- image_read("https://wallpapercave.com/wp/wp2618926.jpg")
+cat_n_roses <- image_read("https://2.bp.blogspot.com/-WdjaYnmHI1k/T9uf0rOp3gI/AAAAAAAAAEQ/fQ_FjVKRlmA/s1600/Cute-Cats-011.jpg")
+cat_buquet <- image_read("https://2.bp.blogspot.com/-WdjaYnmHI1k/T9uf0rOp3gI/AAAAAAAAAEQ/fQ_FjVKRlmA/s1600/Cute-Cats-011.jpg")
+```
+
+::: {#tab-cats .panel-tabset}
+## Cat 1
+
+```{r printcat1}
+print(obtuse_cat)
+```
+
+## Chonk 2
+
+```{r printcat2}
+print(cat_n_roses)
+```
+
+## Chonk 3
+
+```{r printcat3}
+print(cat_buquet)
+```
+:::
+
+## Having Plots side by side
+
+```{python}
+#| label: fig-charts
+#| fig-cap: "Charts"
+#| fig-subcap: 
+#|   - "Left"
+#|   - "Right"
+#| layout-ncol: 2
+
+import matplotlib.pyplot as plt
+plt.plot([1,23,2,4])
+plt.show()
+
+plt.plot([8,65,23,90])
+plt.show()
+```
