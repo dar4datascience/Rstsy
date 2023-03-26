@@ -1,5 +1,5 @@
 #set.seed(420)
-here::i_am("my_first_artsty.R")
+#here::i_am("my_first_artsty.R")
 library(aRtsy)
 library(magrittr)
 #add random sample to chose n
@@ -7,7 +7,7 @@ artwork_mosaic <- canvas_mosaic(colors = colorPalette("random", n= 3))
 
 artwork_nebula <- canvas_nebula(colors = colorPalette("random", n= 4))
 
-artwork_forest <- canvas_forest(colors = colorPalette("random", n= 5))
+artwork_forest <- canvas_forest(colors = colorPalette("random", n= 7))
 
 artwork_squares <- canvas_squares(colors = colorPalette("random", n= 6))
 
@@ -23,7 +23,7 @@ artwork_recaman <- canvas_recaman(colors = colorPalette("random", n = 5))
 
 artwork_strokes <- canvas_strokes(colors = colorPalette("random", n= 9))
 
-artwork_smoke <- canvas_smoke(colors = 'all', shape = 'clouds')
+#artwork_smoke <- canvas_smoke(colors = 'all', shape)
 
 # Advanced example
 colors <- list(
@@ -67,7 +67,7 @@ artwork_df <- tibble::tibble(
     'artwork_petri',
     'artwork_planet',
     'artwork_polylines',
-    'artwork_smoke',
+#    'artwork_smoke',
     'artwork_recaman',
     'artwork_turmite',
     'artwork_strokes',
@@ -87,7 +87,7 @@ artwork_df <- tibble::tibble(
     artwork_petri,
     artwork_planet,
     artwork_polylines,
-    artwork_smoke,
+ #   artwork_smoke,
     artwork_recaman,
     artwork_turmite,
     artwork_strokes,
