@@ -1,5 +1,6 @@
 ---
 title: "My First Quarto Upload!"
+subtitle: "`r paste0('Last rendered: ', Sys.Date())`"
 author: "Daniel Amieva Rodriguez"
 format: 
   html:
