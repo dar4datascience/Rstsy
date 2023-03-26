@@ -1,0 +1,4 @@
+- source: gridlayout_demo.qmd
+  quarto-pub:
+    - id: eaa83b07-86d5-4637-bd49-6d68a3b9fb1a
+      url: 'https://dar4ds.quarto.pub/my-first-quarto-upload'
