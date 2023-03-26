@@ -1,0 +1,87 @@
+---
+title: "Gallery of ARtsy Stuff"
+author: "Daniel Amieva Rodriguez"
+output:
+  rmarkdown::html_document:
+    code-fold: true
+    toc: true
+    toc_float: true
+---
+
+## Demo Grid Layout with Cats and Other Rtsy Stuff
+
+```{r}
+#| label: "setup"
+#| include: FALSE
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(magick)
+library(glue)
+here::i_am("Gallery_of_Rts.Rmd")
+```
+
+```{r}
+#| label: load-images
+#| include: false
+obtuse_cat <- image_read("https://wallpapercave.com/wp/wp2618926.jpg")
+cat_n_roses <- image_read("https://2.bp.blogspot.com/-WdjaYnmHI1k/T9uf0rOp3gI/AAAAAAAAAEQ/fQ_FjVKRlmA/s1600/Cute-Cats-011.jpg")
+cat_buquet <- image_read("https://i.pinimg.com/originals/89/35/1f/89351f7cba1f094ffb8ecd6476a90e7f.jpg")
+
+```
+
+::: {#tab-cats .panel-tabset}
+## Chonk 1
+
+```{r}
+#| label = "printcat1"
+grid::grid.raster(obtuse_cat)
+```
+
+## Chonk 2
+
+```{r}
+#| label = "printcat2"
+cat_n_roses
+```
+
+## Chonk 3
+
+```{r}
+#| label = "printcat3"
+cat_buquet
+```
+:::
+
+## Start of Gallery
+
+```{r}
+#| label = "sourcersty"
+source("my_first_artsty.R")
+
+# to run one by one
+generate_gallery <- function(artwork_dataframe){
+ heading_title <- artwork_dataframe$title %>% stringr::str_to_title()
+  string_heading <- paste0("\n\n### ", heading_title, '\n\n')
+  
+  path_2_image <- here::here('rstsy outputs', paste0(artwork_dataframe$title, ".png"))
+  
+read_image <- image_read(path_2_image)
+  
+markdown_url <- glue::glue()
+
+  cat(string_heading)
+  
+  print(htmltools::img(src = knitr::image_uri(path_2_image),
+                 style = "max-height:90%; max-width:90%;"))
+}
+```
+
+```{r}
+#| label = "generate-gallery",
+#| echo = FALSE,
+#| results = "asis"
+
+purrr::walk( 1:nrow(artwork_df),
+             ~generate_gallery(artwork_df[.x,])
+)
+
+```
