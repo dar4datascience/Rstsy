@@ -1,5 +1,5 @@
 ---
-title: "gridlayout_demo"
+title: "My First Quarto Upload!"
 author: "Daniel Amieva Rodriguez"
 format: 
   html:
@@ -23,30 +23,32 @@ here::i_am("gridlayout_demo.qmd")
 #| include: false
 obtuse_cat <- image_read("https://wallpapercave.com/wp/wp2618926.jpg")
 cat_n_roses <- image_read("https://2.bp.blogspot.com/-WdjaYnmHI1k/T9uf0rOp3gI/AAAAAAAAAEQ/fQ_FjVKRlmA/s1600/Cute-Cats-011.jpg")
-cat_buquet <- image_read("https://2.bp.blogspot.com/-WdjaYnmHI1k/T9uf0rOp3gI/AAAAAAAAAEQ/fQ_FjVKRlmA/s1600/Cute-Cats-011.jpg")
+cat_buquet <- image_read("https://i.pinimg.com/originals/89/35/1f/89351f7cba1f094ffb8ecd6476a90e7f.jpg")
 ```
 
 ::: {#tab-cats .panel-tabset}
 ## Cat 1
 
 ```{r printcat1}
-print(obtuse_cat)
+obtuse_cat
 ```
 
 ## Chonk 2
 
 ```{r printcat2}
-print(cat_n_roses)
+cat_n_roses
 ```
 
 ## Chonk 3
 
 ```{r printcat3}
-print(cat_buquet)
+cat_buquet
 ```
 :::
 
 ## Having Plots side by side
+
+### Using Python
 
 ```{python}
 #| label: fig-charts
@@ -62,4 +64,39 @@ plt.show()
 
 plt.plot([8,65,23,90])
 plt.show()
+```
+
+### Using R
+
+Getting artsy
+
+```{r}
+#| label: fig-artsy-artworks
+#| fig-cap: "Generative Art"
+#| fig-subcap: 
+#|  - "Favorite Random Image 1"
+#|  - "Favorite Random Image 2"
+#|  - "Random Palette"
+#|  - "Divergent Palette"
+#| layout-ncol: 2
+#| layout-nrow: 2
+library(aRtsy)
+library(magick)
+library(grid)
+artwork_nebula_random <- canvas_nebula(colors = colorPalette("random", n=8))
+artwork_nebula_random
+
+artwork_nebula_divergent <- canvas_nebula(colors = colorPalette("divergent", n=4))
+artwork_nebula_divergent
+
+images_2_choose <- fs::dir_ls(here::here('rstsy outputs/refined outputs'))
+
+images_rand_chosen <- sample(images_2_choose, 2)
+
+favorite_random_image1 <- image_read(images_rand_chosen[1])
+favorite_random_image2 <- image_read(images_rand_chosen[2])
+
+
+favorite_random_image1
+favorite_random_image2
 ```
