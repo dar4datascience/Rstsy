@@ -1,0 +1,16 @@
+{
+  "hash": "96e1c282814b7f89df7a091aa4473ed8",
+  "result": {
+    "markdown": "---\ntitle: \"My First Quarto Upload!\"\nsubtitle: \"Last rendered: 2023-03-25\"\nauthor: \"Daniel Amieva Rodriguez\"\nformat: \n  html:\n    embed-resources: true\n    code-fold: true\neditor: visual\n---\n\n\n## Demo Grid Layout with Cats and Other Rtsy Stuff\n\n\n\n\n\n\n\n::: {#tab-cats .panel-tabset}\n## Cat 1\n\n\n::: {.cell}\n\n```{.r .cell-code}\nobtuse_cat\n```\n\n::: {.cell-output-display}\n![](gridlayout_demo_files/figure-html/printcat1-1.png){width=1280}\n:::\n:::\n\n\n## Chonk 2\n\n\n::: {.cell}\n\n```{.r .cell-code}\ncat_n_roses\n```\n\n::: {.cell-output-display}\n![](gridlayout_demo_files/figure-html/printcat2-1.png){width=800}\n:::\n:::\n\n\n## Chonk 3\n\n\n::: {.cell}\n\n```{.r .cell-code}\ncat_buquet\n```\n\n::: {.cell-output-display}\n![](gridlayout_demo_files/figure-html/printcat3-1.png){width=2592}\n:::\n:::\n\n:::\n\n## Having Plots side by side\n\n### Using Python\n\n\n::: {#fig-charts .cell layout-ncol=\"2\"}\n\n```{.python .cell-code}\nimport matplotlib.pyplot as plt\nplt.plot([1,23,2,4])\nplt.show()\n```\n\n::: {.cell-output-display}\n![Left](gridlayout_demo_files/figure-html/fig-charts-1.png){#fig-charts-1 width=672}\n:::\n\n```{.python .cell-code}\nplt.plot([8,65,23,90])\nplt.show()\n```\n\n::: {.cell-output-display}\n![Right](gridlayout_demo_files/figure-html/fig-charts-2.png){#fig-charts-2 width=672}\n:::\n\nCharts\n:::\n\n\n### Using R\n\nGetting artsy\n\n\n::: {#fig-artsy-artworks .cell layout-nrow=\"2\" layout-ncol=\"2\"}\n\n```{.r .cell-code}\nlibrary(aRtsy)\nlibrary(magick)\nlibrary(grid)\nartwork_nebula_random <- canvas_nebula(colors = colorPalette(\"random\", n=8))\nartwork_nebula_random\n\nartwork_nebula_divergent <- canvas_nebula(colors = colorPalette(\"divergent\", n=4))\nartwork_nebula_divergent\n\nimages_2_choose <- fs::dir_ls(here::here('rstsy outputs/refined outputs'))\n\nimages_rand_chosen <- sample(images_2_choose, 2)\n\nfavorite_random_image1 <- image_read(images_rand_chosen[1])\nfavorite_random_image2 <- image_read(images_rand_chosen[2])\n\n\nfavorite_random_image1\nfavorite_random_image2\n```\n\n::: {.cell-output-display}\n![Random Palette](gridlayout_demo_files/figure-html/fig-artsy-artworks-7.png){#fig-artsy-artworks-1 width=672}\n:::\n\n::: {.cell-output-display}\n![Divergent Palette](gridlayout_demo_files/figure-html/fig-artsy-artworks-8.png){#fig-artsy-artworks-2 width=672}\n:::\n\n::: {.cell-output-display}\n![Favorite Random Image 1](gridlayout_demo_files/figure-html/fig-artsy-artworks-5.png){#fig-artsy-artworks-3 width=413}\n:::\n\n::: {.cell-output-display}\n![Favorite Random Image 2](gridlayout_demo_files/figure-html/fig-artsy-artworks-6.png){#fig-artsy-artworks-4 width=413}\n:::\n\nGenerative Art\n:::\n",
+    "supporting": [
+      "gridlayout_demo_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
